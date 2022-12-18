@@ -1,18 +1,19 @@
 package com.magazine.market.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
-public class Warehouse {
+public class Transporter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  title;
-    private String  city;
-    private String  street;
-    private String  location;
+    private String  name_carrier;//@OneToMany
+
+    private String  car_model;//@OneToMany
+    private int  load_capacity;
 
 }
