@@ -11,9 +11,9 @@ public class Transporter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  name_carrier;//@OneToMany
+    private String  name_carrier;//@ManyToOne
 
-    private String  car_model;//@OneToMany
+    private String  car_model;//@ManyToOne
     private int  load_capacity;
 
 }

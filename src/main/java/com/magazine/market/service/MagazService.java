@@ -1,5 +1,6 @@
 package com.magazine.market.service;
 
+import com.magazine.market.dto.DeliveryDto;
 import com.magazine.market.entity.Delivery;
 import com.magazine.market.exception.EntityNotFoundException;
 import com.magazine.market.repository.MagazRepository;
@@ -13,22 +14,22 @@ import java.util.List;
 public class MagazService {
     private final MagazRepository magazRepository;
 
-    public List<Delivery> getAll(){
-        return magazRepository.findAll ();
+    public List<DeliveryDto> getAll(){
+        return magazRepository.findAll ().stream ().map (DeliveryDto::of).toList ();
     }
 
-    public Delivery get(Long id) {
-        return magazRepository.findById(id).orElseThrow( EntityNotFoundException::new );
+    public DeliveryDto get(Long id) {
+        return magazRepository.findById(id).map (DeliveryDto::of).orElseThrow( EntityNotFoundException::new );
     }
 
-    public void create(Delivery delivery) {
-        magazRepository.save ( delivery  );
+    public void create(DeliveryDto deliveryDto) {
+        magazRepository.save (Delivery.of(deliveryDto));
     }
 
-    public void update(Long id, Delivery delivery) {
-        Delivery existingDelivery = magazRepository.findById(id).orElseThrow( EntityNotFoundException::new );
-        existingDelivery.setCargo_name ( delivery.getCargo_name ());
-        magazRepository.save ( existingDelivery );
+    public void update(Long id, DeliveryDto deliveryDto) {
+        Delivery delivery = magazRepository.findById(id).orElseThrow( EntityNotFoundException::new );
+        delivery.setCargo_name (deliveryDto.getCargo_name ().toString ());
+        magazRepository.save ( delivery );
     }
     public void delete(Long id) {
         magazRepository.deleteById ( id );

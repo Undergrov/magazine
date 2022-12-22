@@ -1,8 +1,8 @@
-INSERT INTO delivery (warehouse_from, warehouse_to, cargo_amount, transporter, cargo_name)VALUES
-('1', '2', 15, 'Ivan', 'Nissan'),
-('1', '2', 15, 'Ivan', 'Nissan'),
-('1', '2', 15, 'Ivan', 'Nissan'),
-('1', '2', 15, 'Ivan', 'Nissan');
+INSERT INTO delivery (warehouse_from, warehouse_to, cargo_amount, transporter, cargo_name, delivery_date)VALUES
+        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09'),
+        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09'),
+        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09'),
+        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09');
 
 INSERT INTO warehouse (city, location, street, title)VALUES
     ('New York', 'Ohio, USA', '7841 Thorne St.Reynoldsburg, OH 43068', 'Veralock'),
