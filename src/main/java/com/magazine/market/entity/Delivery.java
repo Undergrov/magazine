@@ -1,9 +1,11 @@
 package com.magazine.market.entity;
 
-import com.magazine.market.dto.DeliveryDto;
-import com.magazine.market.entity.enums.Status;
+import com.magazine.market.entity.enums.DeliveryStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -15,19 +17,20 @@ public class Delivery {
     @Id
     private Long id;
     private LocalDate deliveryDate;
-    private String  cargoName;//ManyToOne
-    private String  transporter;//@ManyToOne
-    private int cargoAmount;//@ManyToOne
-    private String  warehouseTo;//@ManyToOne
-    private String  warehouseFrom;//@ManyToOne
-    @Enumerated
-    private Status status;
+    private String cargoName;
+    private int cargoAmount;
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
 
-    public static Delivery of (DeliveryDto deliveryDto){
-        Delivery delivery = new Delivery ();
-        delivery.setCargoName (deliveryDto.getCargoName ());
-        delivery.setDeliveryDate (deliveryDto.getDeliveryDate ());
-        return delivery;
-    }
+    @ManyToOne
+    @JoinColumn(name = "transporter_id")
+    private Transporter transporter;
 
+    @ManyToOne
+    @JoinColumn(name = "warehouse_from_id")
+    private Warehouse warehouseFrom;
+
+    @ManyToOne
+    @JoinColumn(name = "warehouse_to_id")
+    private Warehouse warehouseTo;
 }

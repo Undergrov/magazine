@@ -1,11 +1,10 @@
 package com.magazine.market.entity;
 
 import com.magazine.market.dto.WarehouseDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,15 +14,16 @@ public class Warehouse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  title;//@OneToMany
-    private String  city;
-    private String  street;
-    private String  location;
+    private String title;
+    @Embedded
+    private Location location;
 
-    public static Warehouse of (WarehouseDto warehouseDto){
-        Warehouse warehouse = new Warehouse ();
-        warehouse.setTitle (warehouseDto.getTitle ());
-        return warehouse;
-    }
+
+    @OneToMany(mappedBy = "warehouseFrom")
+    private List<Delivery> deliveriesFrom;
+
+
+    @OneToMany(mappedBy = "warehouseTo")
+    private List<Delivery> deliveriesTo;
 
 }

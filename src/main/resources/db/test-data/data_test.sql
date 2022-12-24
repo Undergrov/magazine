@@ -1,22 +1,16 @@
-INSERT INTO delivery (warehouse_from, warehouse_to, cargo_amount, transporter, cargo_name, delivery_date)VALUES
-        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09'),
-        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09'),
-        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09'),
-        ('1', '2', 15, 'Ivan', 'Nissan', '2020-02-09');
+INSERT INTO transporter (name, car_model, capacity) VALUES
+                    ('John','Volvo', 15000),
+                    ('Nick','BMW', 27000),
+                    ('Joey','Nissan', 30000);
 
-INSERT INTO warehouse (city, location, street, title)VALUES
-    ('New York', 'Ohio, USA', '7841 Thorne St.Reynoldsburg, OH 43068', 'Veralock'),
-    ('Washington', 'Alabama, USA', '297 E. Princess Dr.Harvey, IL 60426', 'HoldingPoint'),
-    ('Detroit', 'Texas, USA', '417 W. Lexington Rd.Elizabeth, NJ 07202', 'Storaze'),
-    ('Miami', 'Arizona, USA', '9917 Talbot RoadOwensboro, KY 42301', 'BoxMaven');
 
-INSERT INTO transporter (car_model, load_capacity, name_carrier)VALUES
-    ('Toyota Auris', 20, 'John'),
-    ('Honda NSX', 35, 'Jake'),
-    ('Hyundai ix35', 51, 'Alan'),
-    ('Mercedes Benz GLE Class', 26, 'Kyle'),
-    ('Chrysler 300', 76, 'Andrew'),
-    ('GMC Sierra', 17, 'Joey'),
-    ('Audi A4', 73, 'Connor'),
-    ('Kia Cee''d',47, 'Alex');
+INSERT INTO warehouse (title, country, region, city, street) VALUES
+                    ('Vigilant','USA', 'Ohio', 'Detroit', '21 Peachtree Ave. Marion, NC 28752'),
+                    ('StorageRent','USA', 'Florida', 'New York','714 Carson Drive Everett, MA 02149'),
+                    ('StorageCentre','USA', 'Washington', 'Los Angeles', '53 Marvon St. Lake Worth, FL 33460');
 
+
+INSERT INTO delivery (delivery_date, cargo_name, cargo_amount, status, transporter_id, warehouse_from_id, warehouse_to_id ) VALUES
+                    ('2022-04-07', 'Sugar', 5000, 'SUBMITED', 1, 3, 2),
+                    ('2019-06-09', 'Flour', 7000, 'CANCELLED', 3, 1, 2),
+                    ('2005-01-07', 'Salt', 1000, 'PROCESSING', 2, 2, 1);

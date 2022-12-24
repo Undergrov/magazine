@@ -1,6 +1,5 @@
 package com.magazine.market.dto;
 
-import com.magazine.market.entity.Delivery;
 import lombok.Data;
 import java.time.LocalDate;
 
@@ -13,11 +12,4 @@ public class DeliveryDto {
     private int cargoAmount;
     private String warehouseTo;
     private String  warehouseFrom;
-
-    public static DeliveryDto of (Delivery delivery){
-       DeliveryDto deliveryDto = new DeliveryDto ();
-       deliveryDto.setCargoName (delivery.getCargoName ());
-       deliveryDto.setDeliveryDate (delivery.getDeliveryDate ());
-       return deliveryDto;
-    }
 }

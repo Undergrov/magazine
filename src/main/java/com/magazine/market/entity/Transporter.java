@@ -1,8 +1,9 @@
 package com.magazine.market.entity;
 
-import com.magazine.market.dto.TransporterDto;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,14 +13,10 @@ public class Transporter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  nameCarrier;//@OneToMany
+    private String name;
+    private String carModel;
+    private int capacity;
 
-    private String  carModel;//@OneToMany
-    private int  loadCapacity;//OneToMany
-
-    public static Transporter of (TransporterDto transporterDto){
-        Transporter transporter = new Transporter ();
-        transporter.setNameCarrier (transporterDto.getNameCarrier ());
-        return transporter;
-    }
+    @OneToMany(mappedBy = "transporter")
+    private List<Delivery> deliveries;
 }
