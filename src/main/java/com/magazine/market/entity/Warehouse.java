@@ -15,7 +15,7 @@ public class Warehouse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  title;//@ManyToOne
+    private String  title;//@OneToMany
     private String  city;
     private String  street;
     private String  location;

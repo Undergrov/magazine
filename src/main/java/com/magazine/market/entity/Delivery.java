@@ -4,7 +4,6 @@ import com.magazine.market.dto.DeliveryDto;
 import com.magazine.market.entity.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -16,11 +15,11 @@ public class Delivery {
     @Id
     private Long id;
     private LocalDate deliveryDate;
-    private String  cargoName;
-    private String  transporter;//@OneToMany
-    private int cargoAmount;
-    private String  warehouseTo;//@OneToMany
-    private String  warehouseFrom;//@OneToMany
+    private String  cargoName;//ManyToOne
+    private String  transporter;//@ManyToOne
+    private int cargoAmount;//@ManyToOne
+    private String  warehouseTo;//@ManyToOne
+    private String  warehouseFrom;//@ManyToOne
     @Enumerated
     private Status status;
 

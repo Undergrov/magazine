@@ -12,10 +12,10 @@ public class Transporter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  nameCarrier;//@ManyToOne
+    private String  nameCarrier;//@OneToMany
 
-    private String  carModel;//@ManyToOne
-    private int  loadCapacity;
+    private String  carModel;//@OneToMany
+    private int  loadCapacity;//OneToMany
 
     public static Transporter of (TransporterDto transporterDto){
         Transporter transporter = new Transporter ();
