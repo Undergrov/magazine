@@ -2,7 +2,7 @@ package com.magazine.market.controller;
 
 
 import com.magazine.market.dto.DeliveryDto;
-import com.magazine.market.service.MagazService;
+import com.magazine.market.service.DeliveryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,31 +12,31 @@ import java.util.List;
 @RestController
 
 @RequestMapping("/api/delivery")
-public class MagazController {
-    private final MagazService magazService;
+public class DeliveryController {
+    private final DeliveryService deliveryService;
 
     @GetMapping()
     public List<DeliveryDto> getAll(){
-        return magazService.getAll ();
+        return deliveryService.getAll ();
     }
 
     @GetMapping("/{id}")
     public DeliveryDto get(@PathVariable Long id){
-        return magazService.get ( id );
+        return deliveryService.get ( id );
     }
 
     @PostMapping()
     public void create(@RequestBody DeliveryDto delivery){
-        magazService.create(delivery);
+        deliveryService.create(delivery);
     }
 
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody DeliveryDto delivery){
-        magazService.update(id, delivery);
+        deliveryService.update(id, delivery);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
-        magazService.delete(id);
+        deliveryService.delete(id);
     }
 }

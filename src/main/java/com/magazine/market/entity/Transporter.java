@@ -1,5 +1,6 @@
 package com.magazine.market.entity;
 
+import com.magazine.market.dto.TransporterDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,9 +12,14 @@ public class Transporter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String  name_carrier;//@ManyToOne
+    private String  nameCarrier;//@ManyToOne
 
-    private String  car_model;//@ManyToOne
-    private int  load_capacity;
+    private String  carModel;//@ManyToOne
+    private int  loadCapacity;
 
+    public static Transporter of (TransporterDto transporterDto){
+        Transporter transporter = new Transporter ();
+        transporter.setNameCarrier (transporterDto.getNameCarrier ());
+        return transporter;
+    }
 }

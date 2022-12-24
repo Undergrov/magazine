@@ -1,10 +1,8 @@
 package com.magazine.market.entity;
 
 import com.magazine.market.dto.DeliveryDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.magazine.market.entity.enums.Status;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -17,17 +15,19 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private LocalDate delivery_date;
-    private String  cargo_name;
+    private LocalDate deliveryDate;
+    private String  cargoName;
     private String  transporter;//@OneToMany
-    private int cargo_amount;
-    private String  warehouse_to;//@OneToMany
-    private String  warehouse_from;//@OneToMany
+    private int cargoAmount;
+    private String  warehouseTo;//@OneToMany
+    private String  warehouseFrom;//@OneToMany
+    @Enumerated
+    private Status status;
 
     public static Delivery of (DeliveryDto deliveryDto){
         Delivery delivery = new Delivery ();
-        delivery.setCargo_name (deliveryDto.getCargo_name ().toString ());
-        delivery.setDelivery_date (deliveryDto.getDelivery_date ());
+        delivery.setCargoName (deliveryDto.getCargoName ());
+        delivery.setDeliveryDate (deliveryDto.getDeliveryDate ());
         return delivery;
     }
 

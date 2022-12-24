@@ -1,5 +1,6 @@
 package com.magazine.market.entity;
 
+import com.magazine.market.dto.WarehouseDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,5 +19,11 @@ public class Warehouse {
     private String  city;
     private String  street;
     private String  location;
+
+    public static Warehouse of (WarehouseDto warehouseDto){
+        Warehouse warehouse = new Warehouse ();
+        warehouse.setTitle (warehouseDto.getTitle ());
+        return warehouse;
+    }
 
 }
