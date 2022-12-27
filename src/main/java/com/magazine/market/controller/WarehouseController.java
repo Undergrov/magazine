@@ -7,25 +7,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RequiredArgsConstructor
 @RestController
-
 @RequestMapping("/api/warehouse")
 public class WarehouseController {
     private final WarehouseService warehouseService;
 
-    @GetMapping()
+    @GetMapping
     public List<WarehouseDto> getAll(){
         return warehouseService.getAll ();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public WarehouseDto get(@PathVariable Long id){
         return warehouseService.get ( id );
     }
 
-    @PostMapping()
+    @PostMapping
     public void create(@RequestBody WarehouseDto warehouse){
         warehouseService.create(warehouse);
     }

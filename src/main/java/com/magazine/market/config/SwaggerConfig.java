@@ -12,7 +12,7 @@ public class SwaggerConfig {
         return new Info ( ).title ( "Magazine API" )
                 .description ( "API for magazine project" )
                 .version ( "0.1.0" )
-                .contact ( new Contact ( ).name ( "Andrii Byhar" ).email ( "example@gmail.com" ) );
+                .contact ( new Contact ( ).name ( "Andrii Byhar" ).email ( "andriybyhar@gmail.com" ) );
     }
 
     @Bean
