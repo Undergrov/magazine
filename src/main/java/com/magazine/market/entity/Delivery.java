@@ -23,8 +23,8 @@ public class Delivery {
     private DeliveryStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "transporter_id")
-    private Transporter transporter;
+    @JoinColumn(name = "transporters_id")
+    private Transporter transporters;
 
     @ManyToOne
     @JoinColumn(name = "warehouse_from_id")

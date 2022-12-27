@@ -1,5 +1,6 @@
 package com.magazine.market.dto;
 
+import com.magazine.market.entity.Warehouse;
 import com.magazine.market.entity.enums.DeliveryStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -14,7 +15,8 @@ public class DeliveryDto {
     private int cargoAmount;
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
-    private TransporterDto transporter;
+    private TransporterDto transporters;
+    private WarehouseDto warehouseFrom;
     private WarehouseDto warehouseTo;
-    private WarehouseDto  warehouseFrom;
+
 }

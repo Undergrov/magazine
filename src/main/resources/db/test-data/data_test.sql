@@ -10,7 +10,7 @@ INSERT INTO warehouse (title, country, region, city, street) VALUES
                     ('StorageCentre','USA', 'Washington', 'Los Angeles', '53 Marvon St. Lake Worth, FL 33460');
 
 
-INSERT INTO delivery (delivery_date, cargo_name, cargo_amount, status, transporter_id, warehouse_from_id, warehouse_to_id ) VALUES
-                    ('2022-04-07', 'Sugar', 5000, 'SUBMITED', 1, 3, 2),
+INSERT INTO delivery (delivery_date, cargo_name, cargo_amount, status, transporters_id, warehouse_from_id, warehouse_to_id ) VALUES
+                    ('2022-04-07', 'Sugar', 5000, 'SUBMITTED', 1, 2, 3),
                     ('2019-06-09', 'Flour', 7000, 'CANCELLED', 3, 1, 2),
                     ('2005-01-07', 'Salt', 1000, 'PROCESSING', 2, 2, 1);

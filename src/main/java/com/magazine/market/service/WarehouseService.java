@@ -7,7 +7,6 @@ import com.magazine.market.mapper.Mapper;
 import com.magazine.market.repository.WarehouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @RequiredArgsConstructor

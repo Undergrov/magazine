@@ -1,9 +1,7 @@
 package com.magazine.market.entity;
 
-import com.magazine.market.dto.WarehouseDto;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @AllArgsConstructor

@@ -17,6 +17,6 @@ public class Transporter {
     private String carModel;
     private int capacity;
 
-    @OneToMany(mappedBy = "transporter")
+    @OneToMany(mappedBy = "transporters")
     private List<Delivery> deliveries;
 }
