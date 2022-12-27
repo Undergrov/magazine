@@ -15,7 +15,7 @@ public class DeliveryDto {
     private int cargoAmount;
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
-    private TransporterDto transporters;
+    private TransporterDto transporter;
     private WarehouseDto warehouseFrom;
     private WarehouseDto warehouseTo;
 
