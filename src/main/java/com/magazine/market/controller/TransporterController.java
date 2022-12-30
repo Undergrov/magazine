@@ -3,8 +3,12 @@ package com.magazine.market.controller;
 import com.magazine.market.dto.TransporterDto;
 import com.magazine.market.service.TransporterService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -13,8 +17,9 @@ public class TransporterController {
     private final TransporterService transporterService;
 
     @GetMapping
-    public List<TransporterDto> getAll(){
-        return transporterService.getAll ();
+    private Page<TransporterDto> getAll(@RequestParam(required = false) String name,
+                                      @PageableDefault(sort = "id", direction = Sort.Direction.ASC) @ParameterObject Pageable pageable) {
+        return transporterService.getAll(name, pageable);
     }
 
     @GetMapping(value = "/{id}")

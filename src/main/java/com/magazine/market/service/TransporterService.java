@@ -7,8 +7,9 @@ import com.magazine.market.exception.EntityNotFoundException;
 import com.magazine.market.mapper.Mapper;
 import com.magazine.market.repository.TransporterRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -16,8 +17,8 @@ public class TransporterService {
     private final TransporterRepository transporterRepository;
     private final Mapper mapper;
 
-    public List<TransporterDto> getAll(){
-        return transporterRepository.findAll ().stream ().map (mapper::toTransporterDto).toList ();
+    public Page<TransporterDto> getAll(String name, Pageable pageable) {
+        return transporterRepository.findAllBy(name, pageable).map(mapper::toTransporterDto);
     }
 
     public TransporterDto get(Long id) {

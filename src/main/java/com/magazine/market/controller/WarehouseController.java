@@ -3,9 +3,13 @@ package com.magazine.market.controller;
 import com.magazine.market.dto.WarehouseDto;
 import com.magazine.market.service.WarehouseService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -14,8 +18,9 @@ public class WarehouseController {
     private final WarehouseService warehouseService;
 
     @GetMapping
-    public List<WarehouseDto> getAll(){
-        return warehouseService.getAll ();
+    private Page<WarehouseDto> getAll(@RequestParam(required = false) String title,
+                                      @PageableDefault(sort = "id", direction = Sort.Direction.ASC) @ParameterObject Pageable pageable) {
+        return warehouseService.getAll(title, pageable);
     }
 
     @GetMapping(value = "/{id}")

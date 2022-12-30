@@ -6,8 +6,9 @@ import com.magazine.market.exception.EntityNotFoundException;
 import com.magazine.market.mapper.Mapper;
 import com.magazine.market.repository.WarehouseRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -15,8 +16,8 @@ public class WarehouseService {
     private final WarehouseRepository warehouseRepository;
     private final Mapper mapper;
 
-    public List<WarehouseDto> getAll(){
-        return warehouseRepository.findAll ().stream ().map (mapper::toWarehouseDto).toList ();
+    public Page<WarehouseDto> getAll(String name, Pageable pageable) {
+        return warehouseRepository.findAllBy(name, pageable).map(mapper::toWarehouseDto);
     }
 
     public WarehouseDto get(Long id) {
