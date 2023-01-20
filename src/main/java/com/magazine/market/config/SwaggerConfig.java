@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
     private Info apiInfo() {
         return new Info ( ).title ( "Magazine API" )
-                .description ( "API for magazine project" )
-                .version ( "0.1.0" )
+                .description ( "API for magazine to control, change and delete deliveries" )
+                .version ( "ver. 1.0" )
                 .contact ( new Contact ( ).name ( "Andrii Byhar" ).email ( "andriybyhar@gmail.com" ) );
     }
 

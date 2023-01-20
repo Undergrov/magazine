@@ -2,7 +2,6 @@ package com.magazine.market.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @AllArgsConstructor
@@ -13,7 +12,7 @@ public class Transporter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    private String name;
+    private String person;
     private String carModel;
     private int capacity;
 

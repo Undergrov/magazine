@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class TransporterDto {
     private Long id;
-    private String name;
+    private String person;
     private String carModel;
     private int capacity;
 }
